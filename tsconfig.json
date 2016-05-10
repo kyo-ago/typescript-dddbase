@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "outFile": "main.js",
+    "module": "commonjs",
+    "target": "es6",
+    "sourceMap": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

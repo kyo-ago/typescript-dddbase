@@ -1,0 +1,21 @@
+{
+  "name": "typescript-dddbase",
+  "description": "dddbase for typescript",
+  "version": "0.0.1",
+  "author": "@kyo_ago",
+  "dependencies": {
+    "monapt": "^0.5.1"
+  },
+  "devDependencies": {
+    "fixpack": "^2.3.1",
+    "mocha": "^2.4.5",
+    "typescript": "^1.8.10"
+  },
+  "license": "MIT",
+  "repository": {},
+  "scripts": {
+    "clean": "rm -fr node_modules",
+    "fix": "fixpack",
+    "test": "mocha"
+  }
+}
