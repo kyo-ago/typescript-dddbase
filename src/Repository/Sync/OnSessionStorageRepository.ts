@@ -3,7 +3,7 @@ import Identity from "../../Identity/Identity";
 import Repository from "../Repository";
 import monapt = require("monapt");
 
-export interface SessionStorageMapper<ID extends Identity<any>, E extends Entity<any>> {
+export interface SessionStorageMapper<ID extends Identity<any>, E extends Entity<ID>> {
     parse(json: Object): E;
     stringify(entity: E): string;
 }

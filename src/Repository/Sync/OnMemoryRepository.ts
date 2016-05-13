@@ -3,7 +3,7 @@ import Identity from "../../Identity/Identity";
 import Repository from "../Repository";
 import monapt = require("monapt");
 
-export class OnMemoryRepository<ID extends Identity<any>, E extends Entity<any>> implements Repository<ID, E> {
+export class OnMemoryRepository<ID extends Identity<any>, E extends Entity<ID>> implements Repository<ID, E> {
     private entities: Object = {};
 
     resolveOption(identity: ID): monapt.Option<E> {

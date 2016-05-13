@@ -2,7 +2,7 @@ import Identity from "../Identity/Identity";
 import Entity from "../Entity/Entity";
 import monapt = require("monapt");
 
-interface Repository<ID extends Identity<any>, E extends Entity<any>> {
+interface Repository<ID extends Identity<any>, E extends Entity<ID>> {
     resolveOption(identity: ID): monapt.Option<E>;
 
     resolve(identity: ID): E;
