@@ -1,6 +1,6 @@
-import Entity from "../../Entity/Entity";
-import Identity from "../../Identity/Identity";
-import Repository from "../Repository";
+import {Entity} from "../../Entity/Entity";
+import {Identity} from "../../Identity/Identity";
+import {Repository} from "../Repository";
 import monapt = require("monapt");
 
 export interface LocalStorageMapper<ID extends Identity<ID>, E extends Entity<any>> {

@@ -1,6 +1,6 @@
-import Identity from "../Identity/Identity";
+import {Identity} from "../Identity/Identity";
 
-export default class Entity<ID extends Identity<any>> {
+export class Entity<ID extends Identity<any>> {
 
     constructor(private identity: ID) { }
 

@@ -1,4 +1,4 @@
-export default class Identity<T> {
+export class Identity<T> {
     constructor(private value: T) { }
 
     getValue(): T {

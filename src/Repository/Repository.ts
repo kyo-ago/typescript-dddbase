@@ -1,8 +1,8 @@
-import Identity from "../Identity/Identity";
-import Entity from "../Entity/Entity";
+import {Identity} from "../Identity/Identity";
+import {Entity} from "../Entity/Entity";
 import monapt = require("monapt");
 
-interface Repository<ID extends Identity<any>, E extends Entity<ID>> {
+export interface Repository<ID extends Identity<any>, E extends Entity<ID>> {
     resolveOption(identity: ID): monapt.Option<E>;
 
     resolve(identity: ID): E;
@@ -15,5 +15,3 @@ interface Repository<ID extends Identity<any>, E extends Entity<ID>> {
 
     deleteByIdentity(identity: ID): Repository<ID, E>;
 }
-
-export default Repository;

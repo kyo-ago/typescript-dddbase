@@ -1,8 +1,8 @@
-import Repository from "../Repository";
-import Entity from "../../Entity/Entity";
-import Identity from "../../Identity/Identity";
+import {Repository} from "../Repository";
+import {Entity} from "../../Entity/Entity";
+import {Identity} from "../../Identity/Identity";
 
-export default class AsyncRepository<ID extends Identity<any>, E extends Entity<ID>> {
+export class AsyncRepository<ID extends Identity<any>, E extends Entity<ID>> {
 
     constructor(private core: Repository<ID, E>) {}
 

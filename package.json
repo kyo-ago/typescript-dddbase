@@ -6,6 +6,8 @@
   "dependencies": {
     "monapt": "^0.5.1"
   },
+  "main": "./build/index.js",
+  "typings": "./build/index.d.ts",
   "devDependencies": {
     "fixpack": "^2.3.1",
     "mocha": "^2.4.5",
@@ -14,6 +16,7 @@
   "license": "MIT",
   "repository": {},
   "scripts": {
+    "build": "tsc --project ./",
     "clean": "rm -fr node_modules",
     "fix": "fixpack",
     "test": "mocha"

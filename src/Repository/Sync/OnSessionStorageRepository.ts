@@ -1,6 +1,6 @@
-import Entity from "../../Entity/Entity";
-import Identity from "../../Identity/Identity";
-import Repository from "../Repository";
+import {Entity} from "../../Entity/Entity";
+import {Identity} from "../../Identity/Identity";
+import {Repository} from "../Repository";
 import monapt = require("monapt");
 
 export interface SessionStorageMapper<ID extends Identity<any>, E extends Entity<ID>> {

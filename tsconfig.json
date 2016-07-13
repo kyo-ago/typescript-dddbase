@@ -1,12 +1,17 @@
 {
   "compilerOptions": {
     "noImplicitAny": true,
-    "outFile": "index.js",
+    "outDir": "./build/index.js",
     "module": "commonjs",
     "target": "es6",
-    "sourceMap": true
+    "rootDir": "./",
+    "declaration": true,
+    "listFiles": true,
+    "sourceMap": true,
+    "noEmitOnError": true,
+    "inlineSources": true
   },
-  "exclude": [
-    "node_modules"
+  "filesGlob": [
+    "src/**/*.ts"
   ]
 }
