@@ -18,7 +18,7 @@ describe('OnSessionStorageRepository', () => {
 
     beforeEach(() => {
         repository = new OnSessionStorageRepository<NumberIdentity, Person>({
-            parse: (json: Object): Person => {
+            parse: (json: any): Person => {
                 return new Person(new NumberIdentity(json['identity']['value']), json['name']);
             },
             stringify: (person: Person): string => {

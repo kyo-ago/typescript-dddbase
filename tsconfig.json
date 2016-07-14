@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "noImplicitAny": true,
-    "outDir": "./build/index.js",
+    "outDir": "./build/",
     "module": "commonjs",
     "target": "es6",
     "rootDir": "./",

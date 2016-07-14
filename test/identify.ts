@@ -3,7 +3,7 @@ import assert = require("assert");
 
 describe('Identity', () => {
     describe('NumberIdentity', () => {
-        var identity;
+        var identity: NumberIdentity;
         beforeEach(() => {
             identity = new NumberIdentity(10);
         });

@@ -8,8 +8,8 @@ class Person extends Entity<NumberIdentity> {
 }
 
 describe('Entity', () => {
-    let identity;
-    let person;
+    let identity: NumberIdentity;
+    let person: Person;
 
     beforeEach(() => {
         identity = new NumberIdentity(10);

@@ -1,3 +1,4 @@
+/// <reference path="../DefinitelyTyped/assert.d.ts" />
 import {Entity, NumberIdentity, AsyncOnLocalStorageRepository} from "../src/index";
 import assert = require("assert");
 
@@ -18,7 +19,7 @@ describe('AsyncOnLocalStorageRepository', () => {
 
     beforeEach(() => {
         repository = new AsyncOnLocalStorageRepository<NumberIdentity, Person>({
-            parse: (json: Object): Person => {
+            parse: (json: any): Person => {
                 return new Person(new NumberIdentity(json['identity']['value']), json['name']);
             },
             stringify: (person: Person): string => {

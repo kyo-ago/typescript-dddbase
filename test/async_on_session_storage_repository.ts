@@ -18,7 +18,7 @@ describe('AsyncOnSessionStorageRepository', () => {
 
     beforeEach(() => {
         repository = new AsyncOnSessionStorageRepository<NumberIdentity, Person>({
-            parse: (json: Object): Person => {
+            parse: (json: any): Person => {
                 return new Person(new NumberIdentity(json['identity']['value']), json['name']);
             },
             stringify: (person: Person): string => {
