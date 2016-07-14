@@ -1,4 +1,4 @@
-/// <reference path="../DefinitelyTyped/assert.d.ts" />
+/// <reference path="../typings/bundle.d.ts" />
 import {Entity, NumberIdentity, AsyncOnLocalStorageRepository} from "../src/index";
 import assert = require("assert");
 
