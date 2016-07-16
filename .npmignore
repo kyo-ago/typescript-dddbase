@@ -1,0 +1,8 @@
+/build/localStorage
+/build/sessionStorage
+/build/test
+/src
+/test
+/typings
+/.travis.yml
+/tsconfig.json
