@@ -1,4 +1,3 @@
-/// <reference path="../typings/bundle.d.ts" />
 import {Entity} from "./Entity/Entity";
 import {Identity} from "./Identity/Identity";
 import {NumberIdentity} from "./Identity/NumberIdentity";

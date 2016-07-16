@@ -1,5 +1,6 @@
+import "./index";
 import {Entity, NumberIdentity, AsyncOnMemoryRepository} from "../src/index";
-import assert = require("assert");
+import * as assert from "assert";
 
 class Person extends Entity<NumberIdentity> {
     constructor(identity: NumberIdentity, public name: string) {

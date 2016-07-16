@@ -6,9 +6,9 @@ export class AsyncRepository<ID extends Identity<any>, E extends Entity<ID>> {
 
     constructor(private core: Repository<ID, E>) {}
 
-    resolve(identity: ID): Promise<E> {
-        return new Promise<E>((resolve) => {
-            resolve(this.core.resolveOption(identity).get());
+    resolve(identity: ID): Promise<E | undefined | null> {
+        return new Promise<E | undefined | null>((resolve) => {
+            resolve(this.core.resolveOption(identity));
         });
     }
 

@@ -1,7 +1,6 @@
 import {Entity} from "../../Entity/Entity";
 import {Identity} from "../../Identity/Identity";
 import {Repository} from "../Repository";
-import monapt = require("monapt");
 
 export interface SessionStorageMapper<ID extends Identity<any>, E extends Entity<ID>> {
     parse(json: Object): E;
@@ -18,8 +17,8 @@ export class OnSessionStorageRepository<ID extends Identity<any>, E extends Enti
     parse: (json: Object) => E;
     stringify: (entity: E) => string;
 
-    resolveOption(identity: ID): monapt.Option<E> {
-        return monapt.Option(this.resolve(identity));
+    resolveOption(identity: ID): E | undefined | null {
+        return this.resolve(identity);
     }
 
     resolve(identity: ID): E {

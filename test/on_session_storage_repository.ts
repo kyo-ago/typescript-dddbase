@@ -1,5 +1,6 @@
+import "./index";
 import {Entity, NumberIdentity, OnSessionStorageRepository} from "../src/index";
-import assert = require("assert");
+import * as assert from "assert";
 
 class Person extends Entity<NumberIdentity> {
     constructor(identity: NumberIdentity, public name: string) {
@@ -68,13 +69,13 @@ describe('OnSessionStorageRepository', () => {
             repository.store(person);
 
             var option = repository.resolveOption(identity);
-            assert(!option.isEmpty);
-            assert(option.get().getIdentity().getValue() === person.getIdentity().getValue());
+            assert(!option);
+            assert(option.getIdentity().getValue() === person.getIdentity().getValue());
         });
 
         it('returns None<Entity> if the entity is not stored', () => {
             var option = repository.resolveOption(identity);
-            assert(option.isEmpty);
+            assert(option);
         });
     });
 

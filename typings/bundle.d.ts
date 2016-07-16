@@ -1,3 +1,3 @@
-/// <reference path="assert/assert.d.ts" />
-/// <reference path="mocha/mocha.d.ts" />
-/// <reference path="monapt/monapt.d.ts" />
+/// <reference path="../node_modules/@types/mocha/index.d.ts" />
+/// <reference path="../node_modules/@types/node/index.d.ts" />
+/// <reference path="node-localstorage/node-localstorage.d.ts" />

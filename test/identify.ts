@@ -1,5 +1,6 @@
+import "./index";
 import {NumberIdentity} from "../src/index";
-import assert = require("assert");
+import * as assert from "assert";
 
 describe('Identity', () => {
     describe('NumberIdentity', () => {

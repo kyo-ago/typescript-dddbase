@@ -6,12 +6,16 @@
     "target": "es6",
     "rootDir": "./",
     "declaration": true,
-    "listFiles": true,
-    "sourceMap": true,
+    "listFiles": false,
+    "inlineSourceMap": true,
+    "inlineSources": true,
     "noEmitOnError": true,
-    "inlineSources": true
+    "lib": ["es5", "dom", "es2015.promise"]
   },
-  "filesGlob": [
-    "src/**/*.ts"
+  "include": [
+    "./src/index.ts"
+  ],
+  "exclude": [
+    "./node_modules/"
   ]
 }

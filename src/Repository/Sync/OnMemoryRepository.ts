@@ -1,13 +1,12 @@
 import {Entity} from "../../Entity/Entity";
 import {Identity} from "../../Identity/Identity";
 import {Repository} from "../Repository";
-import monapt = require("monapt");
 
 export class OnMemoryRepository<ID extends Identity<any>, E extends Entity<ID>> implements Repository<ID, E> {
     private entities: {[key: string]: E} = {};
 
-    resolveOption(identity: ID): monapt.Option<E> {
-        return monapt.Option(this.resolve(identity));
+    resolveOption(identity: ID): E | undefined | null {
+        return this.resolve(identity);
     }
 
     resolve(identity: ID): E {

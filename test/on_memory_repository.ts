@@ -1,5 +1,6 @@
+import "./index";
 import {Entity, NumberIdentity, OnMemoryRepository} from "../src/index";
-import assert = require("assert");
+import * as assert from "assert";
 
 class Person extends Entity<NumberIdentity> {
     constructor(identity: NumberIdentity, public name: string) {
@@ -54,13 +55,13 @@ describe('OnMemoryRepository', () => {
             repository.store(person);
 
             var option = repository.resolveOption(identity);
-            assert(!option.isEmpty);
-            assert(option.get() === person);
+            assert(!option);
+            assert(option === person);
         });
 
         it('returns None<Entity> if the entity is not stored', () => {
             var option = repository.resolveOption(identity);
-            assert(option.isEmpty);
+            assert(option);
         });
     });
 
