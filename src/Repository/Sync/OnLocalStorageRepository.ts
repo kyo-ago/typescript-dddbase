@@ -17,11 +17,11 @@ export class OnLocalStorageRepository<ID extends Identity<any>, E extends Entity
     parse: (json: Object) => E;
     stringify: (entity: E) => string;
 
-    resolveOption(identity: ID): E | undefined | null {
+    resolveOption(identity: ID): E | null {
         return this.resolve(identity);
     }
 
-    resolve(identity: ID): E {
+    resolve(identity: ID): E | null {
         var json = JSON.parse(localStorage.getItem(identity.getValue()));
         if (json) {
             return this.parse(json);
@@ -35,7 +35,8 @@ export class OnLocalStorageRepository<ID extends Identity<any>, E extends Entity
     }
 
     storeList(entityList: E[]): E[] {
-        return entityList.map((i) => this.store(i));
+        entityList.forEach((i) => this.store(i));
+        return entityList;
     }
 
     deleteByEntity(entity: E): OnLocalStorageRepository<ID, E> {

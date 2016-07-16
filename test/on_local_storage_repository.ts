@@ -69,13 +69,13 @@ describe('OnLocalStorageRepository', () => {
             repository.store(person);
 
             var option = repository.resolveOption(identity);
-            assert(!option);
+            assert(option !== null);
             assert(option.getIdentity().getValue() === person.getIdentity().getValue());
         });
 
         it('returns None<Entity> if the entity is not stored', () => {
             var option = repository.resolveOption(identity);
-            assert(option);
+            assert(option === null);
         });
     });
 

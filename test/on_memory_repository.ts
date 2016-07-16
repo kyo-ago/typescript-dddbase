@@ -55,13 +55,13 @@ describe('OnMemoryRepository', () => {
             repository.store(person);
 
             var option = repository.resolveOption(identity);
-            assert(!option);
+            assert(option !== null);
             assert(option === person);
         });
 
         it('returns None<Entity> if the entity is not stored', () => {
             var option = repository.resolveOption(identity);
-            assert(option);
+            assert(option === null);
         });
     });
 
@@ -72,7 +72,7 @@ describe('OnMemoryRepository', () => {
             repository.deleteByEntity(person);
             var resolved = repository.resolve(identity);
 
-            assert(resolved === undefined);
+            assert(resolved === null);
         });
     });
 
@@ -83,7 +83,7 @@ describe('OnMemoryRepository', () => {
             repository.deleteByIdentity(identity);
             var resolved = repository.resolve(identity);
 
-            assert(resolved === undefined);
+            assert(resolved === null);
         });
     });
 });

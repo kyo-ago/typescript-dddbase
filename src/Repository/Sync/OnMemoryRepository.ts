@@ -5,12 +5,12 @@ import {Repository} from "../Repository";
 export class OnMemoryRepository<ID extends Identity<any>, E extends Entity<ID>> implements Repository<ID, E> {
     private entities: {[key: string]: E} = {};
 
-    resolveOption(identity: ID): E | undefined | null {
+    resolveOption(identity: ID): E | null {
         return this.resolve(identity);
     }
 
-    resolve(identity: ID): E {
-        return this.entities[identity.getValue()];
+    resolve(identity: ID): E | null {
+        return this.entities[identity.getValue()] || null;
     }
 
     store(entity: E): E {
@@ -19,7 +19,8 @@ export class OnMemoryRepository<ID extends Identity<any>, E extends Entity<ID>> 
     }
 
     storeList(entityList: E[]): E[] {
-        return entityList.map((i) => this.store(i));
+        entityList.forEach((i) => this.store(i));
+        return entityList;
     }
 
     deleteByEntity(entity: E): OnMemoryRepository<ID, E> {
