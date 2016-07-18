@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "noImplicitAny": true,
-    "outDir": "../build/",
+    "outDir": "./build/",
     "module": "commonjs",
     "target": "es6",
-    "rootDir": "../",
+    "rootDir": "./",
     "listFiles": false,
     "inlineSourceMap": true,
     "inlineSources": true,
@@ -12,10 +12,10 @@
     "lib": ["es5", "dom", "es2015.promise"]
   },
   "include": [
-    "../typings/bundle.d.ts",
-    "./*.ts"
+    "./typings/bundle.d.ts",
+    "./test/**/*.ts"
   ],
   "exclude": [
-    "../node_modules/"
+    "./node_modules/"
   ]
 }

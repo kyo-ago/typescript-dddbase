@@ -19,11 +19,11 @@
     "url": "https://github.com/kyo-ago/typescript-dddbase.git"
   },
   "scripts": {
-    "build": "tsc --project ./",
+    "build": "tsc --project ./tsconfig.json",
     "clean": "rm -fr node_modules build",
     "prepublish": "rm -fr build && npm run build",
     "fix": "fixpack",
-    "pretest": "tsc --project ./test/",
+    "pretest": "tsc --project ./tsconfig_test.json",
     "test": "mocha --require intelli-espower-loader build/test/**/*.js"
   },
   "typings": "./build/src/index.d.ts"
