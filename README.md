@@ -1,4 +1,4 @@
-# TypeScript DDD Base
+# TypeScript DDD Base [![Build Status](https://travis-ci.org/kyo-ago/typescript-dddbase.svg?branch=master)](https://travis-ci.org/kyo-ago/typescript-dddbase)
 ===================================
 
 Domain Driven-Desgin support library for TypeScript.
