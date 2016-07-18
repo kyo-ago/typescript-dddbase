@@ -24,7 +24,7 @@
     "prepublish": "rm -fr build && npm run build",
     "fix": "fixpack",
     "pretest": "tsc --project ./tsconfig_test.json",
-    "test": "mocha --require intelli-espower-loader build/test/**/*.js"
+    "test": "mocha build/test/**/*.js"
   },
   "typings": "./build/src/index.d.ts"
 }
