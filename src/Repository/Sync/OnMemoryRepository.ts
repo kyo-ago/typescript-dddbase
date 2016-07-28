@@ -3,7 +3,7 @@ import {Identity} from "../../Identity/Identity";
 import {Repository} from "../Repository";
 
 export class OnMemoryRepository<ID extends Identity<any>, E extends Entity<ID>> implements Repository<ID, E> {
-    private entities: {[key: string]: E} = {};
+    protected entities: {[key: string]: E} = {};
 
     resolveOption(identity: ID): E | null {
         return this.resolve(identity);
