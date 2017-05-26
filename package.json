@@ -1,8 +1,13 @@
 {
   "name": "typescript-dddbase",
   "description": "dddbase for typescript",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "@kyo_ago",
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
   "devDependencies": {
     "@types/mocha": "^2.2.27",
     "@types/node": "^4.0.29",
@@ -21,8 +26,8 @@
   "scripts": {
     "build": "tsc --project ./tsconfig.json",
     "clean": "rm -fr node_modules build",
-    "prepublish": "rm -fr build && npm run build",
     "fix": "fixpack",
+    "prepublish": "rm -fr build && npm run build",
     "pretest": "tsc --project ./tsconfig_test.json",
     "test": "mocha build/test/**/*.js"
   },
