@@ -1,6 +1,6 @@
-import "./index";
-import {Entity, NumberIdentity, OnMemoryRepository} from "../src/index";
 import * as assert from "assert";
+import {Entity, NumberIdentity, OnMemoryRepository} from "../src";
+import "./index";
 
 class Person extends Entity<NumberIdentity> {
     constructor(identity: NumberIdentity, public name: string) {
@@ -9,13 +9,13 @@ class Person extends Entity<NumberIdentity> {
 }
 
 describe('OnMemoryRepository', () => {
-    var repository: OnMemoryRepository<NumberIdentity, Person>;
-    var identity: NumberIdentity;
-    var name: string;
-    var person: Person;
-    var identity2: NumberIdentity;
-    var name2: string;
-    var person2: Person;
+    let repository: OnMemoryRepository<NumberIdentity, Person>;
+    let identity: NumberIdentity;
+    let name: string;
+    let person: Person;
+    let identity2: NumberIdentity;
+    let name2: string;
+    let person2: Person;
 
     beforeEach(() => {
         repository = new OnMemoryRepository<NumberIdentity, Person>();
@@ -29,23 +29,23 @@ describe('OnMemoryRepository', () => {
 
     describe('#store', () => {
         it('can store entity, And can select it', () => {
-            var stored = repository.store(person);
+            let stored = repository.store(person);
             assert(stored === person);
 
-            var resolved = repository.resolve(identity);
+            let resolved = repository.resolve(identity);
             assert(resolved === person);
         });
     });
 
     describe('#storeList', () => {
         it('can store entity list, And can select them', () => {
-            var persons = [person, person2];
-            var stored = repository.storeList(persons);
+            let persons = [person, person2];
+            let stored = repository.storeList(persons);
             assert(stored === persons);
 
-            var resolved = repository.resolve(identity);
+            let resolved = repository.resolve(identity);
             assert(resolved === person);
-            var resolved2 = repository.resolve(identity2);
+            let resolved2 = repository.resolve(identity2);
             assert(resolved2 === person2);
         });
     });
@@ -54,13 +54,13 @@ describe('OnMemoryRepository', () => {
         it('returns Some<Entity> if the entity is stored', () => {
             repository.store(person);
 
-            var option = repository.resolveOption(identity);
+            let option = repository.resolveOption(identity);
             assert(option !== null);
             assert(option === person);
         });
 
         it('returns None<Entity> if the entity is not stored', () => {
-            var option = repository.resolveOption(identity);
+            let option = repository.resolveOption(identity);
             assert(option === null);
         });
     });
@@ -70,7 +70,7 @@ describe('OnMemoryRepository', () => {
             repository.store(person);
 
             repository.deleteByEntity(person);
-            var resolved = repository.resolve(identity);
+            let resolved = repository.resolveOption(identity);
 
             assert(resolved === null);
         });
@@ -81,7 +81,7 @@ describe('OnMemoryRepository', () => {
             repository.store(person);
 
             repository.deleteByIdentity(identity);
-            var resolved = repository.resolve(identity);
+            let resolved = repository.resolveOption(identity);
 
             assert(resolved === null);
         });

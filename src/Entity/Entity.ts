@@ -1,6 +1,6 @@
 import {Identity} from "../Identity/Identity";
 
-export class Entity<ID extends Identity<any>> {
+export abstract class Entity<ID extends Identity<any>> {
 
     constructor(private identity: ID) { }
 

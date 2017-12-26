@@ -6,3 +6,4 @@
 /typings
 /.travis.yml
 /tsconfig.json
+/tsconfig_test.json

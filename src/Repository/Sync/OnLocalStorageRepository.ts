@@ -18,15 +18,23 @@ export class OnLocalStorageRepository<ID extends Identity<any>, E extends Entity
     stringify: (entity: E) => string;
 
     resolveOption(identity: ID): E | null {
-        return this.resolve(identity);
-    }
-
-    resolve(identity: ID): E | null {
-        var json = JSON.parse(localStorage.getItem(identity.getValue()));
+        let item = localStorage.getItem(identity.getValue());
+        if (!item) {
+            return null;
+        }
+        let json = JSON.parse(item);
         if (json) {
             return this.parse(json);
         }
         return null;
+    }
+
+    resolve(identity: ID): E {
+        let resolve = this.resolveOption(identity);
+        if (resolve) {
+            return resolve;
+        }
+        throw new Error(`Missing identity, ${identity}`);
     }
 
     store(entity: E): E {

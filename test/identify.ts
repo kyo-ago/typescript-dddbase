@@ -1,10 +1,10 @@
-import "./index";
-import {NumberIdentity} from "../src/index";
 import * as assert from "assert";
+import {NumberIdentity} from "../src";
+import "./index";
 
 describe('Identity', () => {
     describe('NumberIdentity', () => {
-        var identity: NumberIdentity;
+        let identity: NumberIdentity;
         beforeEach(() => {
             identity = new NumberIdentity(10);
         });
@@ -20,7 +20,7 @@ describe('Identity', () => {
             });
 
             it('should be true if given idenfity that has equiv value', () => {
-                var right = new NumberIdentity(10);
+                let right = new NumberIdentity(10);
                 assert(identity.equals(right));
             });
 
@@ -29,7 +29,7 @@ describe('Identity', () => {
             });
 
             it('should be false if given idenfity that has not equiv value', () => {
-                var right = new NumberIdentity(20);
+                let right = new NumberIdentity(20);
                 assert(!identity.equals(right));
             });
 

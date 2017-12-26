@@ -2,7 +2,7 @@ import {Repository} from "../Repository";
 import {Entity} from "../../Entity/Entity";
 import {Identity} from "../../Identity/Identity";
 
-export class AsyncRepository<ID extends Identity<any>, E extends Entity<ID>> {
+export abstract class AsyncRepository<ID extends Identity<any>, E extends Entity<ID>> {
 
     constructor(private core: Repository<ID, E>) {}
 

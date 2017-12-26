@@ -1,6 +1,6 @@
-import "./index";
-import {Entity, NumberIdentity, AsyncOnSessionStorageRepository} from "../src/index";
 import * as assert from "assert";
+import {AsyncOnSessionStorageRepository, Entity, NumberIdentity} from "../src";
+import "./index";
 
 class Person extends Entity<NumberIdentity> {
     constructor(identity: NumberIdentity, public name: string) {
@@ -9,13 +9,13 @@ class Person extends Entity<NumberIdentity> {
 }
 
 describe('AsyncOnSessionStorageRepository', () => {
-    var repository: AsyncOnSessionStorageRepository<NumberIdentity, Person>;
-    var identity: NumberIdentity;
-    var name: string;
-    var person: Person;
-    var identity2: NumberIdentity;
-    var name2: string;
-    var person2: Person;
+    let repository: AsyncOnSessionStorageRepository<NumberIdentity, Person>;
+    let identity: NumberIdentity;
+    let name: string;
+    let person: Person;
+    let identity2: NumberIdentity;
+    let name2: string;
+    let person2: Person;
 
     beforeEach(() => {
         repository = new AsyncOnSessionStorageRepository<NumberIdentity, Person>({
@@ -48,7 +48,7 @@ describe('AsyncOnSessionStorageRepository', () => {
 
     describe('#storeList', () => {
         it('should store entity list, And future returns stored entity list', () => {
-            var persons = [person, person2];
+            let persons = [person, person2];
             return repository.storeList(persons).then((entityList) => {
                 assert(entityList === persons);
                 assert(entityList.length === 2);

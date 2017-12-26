@@ -18,13 +18,17 @@ export class OnSessionStorageRepository<ID extends Identity<any>, E extends Enti
     stringify: (entity: E) => string;
 
     resolveOption(identity: ID): E | null {
-        return this.resolve(identity);
+        let item = sessionStorage.getItem(identity.getValue());
+        let json = item ? JSON.parse(item) : null;
+        return json ? this.parse(json) : null;
     }
 
-    resolve(identity: ID): E | null {
-        var item = sessionStorage.getItem(identity.getValue());
-        var json = item ? JSON.parse(item) : null;
-        return json ? this.parse(json) : null;
+    resolve(identity: ID): E {
+        let resolve = this.resolveOption(identity);
+        if (resolve) {
+            return resolve;
+        }
+        throw new Error(`Missing identity, ${identity}`);
     }
 
     store(entity: E): E {

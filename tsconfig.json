@@ -3,17 +3,13 @@
     "noImplicitAny": true,
     "outDir": "./build/",
     "module": "commonjs",
-    "target": "es5",
+    "target": "es6",
     "rootDir": "./",
     "declaration": true,
-    "listFiles": true,
     "noEmitOnError": true,
-    "lib": ["es5", "dom", "es2015.promise"]
+    "lib": ["es6", "dom"]
   },
   "include": [
     "./src/index.ts"
-  ],
-  "exclude": [
-    "./node_modules/"
   ]
 }

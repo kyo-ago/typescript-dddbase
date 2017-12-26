@@ -9,13 +9,10 @@
     "inlineSourceMap": true,
     "inlineSources": true,
     "noEmitOnError": true,
-    "lib": ["es5", "dom", "es2015.promise"]
+    "lib": ["es6", "dom"]
   },
   "include": [
     "./typings/bundle.d.ts",
     "./test/**/*.ts"
-  ],
-  "exclude": [
-    "./node_modules/"
   ]
 }

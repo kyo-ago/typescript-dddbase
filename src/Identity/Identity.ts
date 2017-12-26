@@ -1,4 +1,4 @@
-export class Identity<T> {
+export abstract class Identity<T> {
     constructor(private value: T) { }
 
     getValue(): T {

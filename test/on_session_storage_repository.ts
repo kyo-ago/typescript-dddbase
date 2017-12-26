@@ -1,6 +1,6 @@
-import "./index";
-import {Entity, NumberIdentity, OnSessionStorageRepository} from "../src/index";
 import * as assert from "assert";
+import {Entity, NumberIdentity, OnSessionStorageRepository} from "../src";
+import "./index";
 
 class Person extends Entity<NumberIdentity> {
     constructor(identity: NumberIdentity, public name: string) {
@@ -9,13 +9,13 @@ class Person extends Entity<NumberIdentity> {
 }
 
 describe('OnSessionStorageRepository', () => {
-    var repository: OnSessionStorageRepository<NumberIdentity, Person>;
-    var identity: NumberIdentity;
-    var name: string;
-    var person: Person;
-    var identity2: NumberIdentity;
-    var name2: string;
-    var person2: Person;
+    let repository: OnSessionStorageRepository<NumberIdentity, Person>;
+    let identity: NumberIdentity;
+    let name: string;
+    let person: Person;
+    let identity2: NumberIdentity;
+    let name2: string;
+    let person2: Person;
 
     beforeEach(() => {
         repository = new OnSessionStorageRepository<NumberIdentity, Person>({
@@ -40,10 +40,10 @@ describe('OnSessionStorageRepository', () => {
 
     describe('#store', () => {
         it('can store entity, And can select it', () => {
-            var stored = repository.store(person);
+            let stored = repository.store(person);
             assert(stored === person);
 
-            var resolved = repository.resolve(identity);
+            let resolved = repository.resolve(identity);
             assert(resolved.getIdentity().getValue() === person.getIdentity().getValue());
             assert(resolved.name === person.name);
         });
@@ -51,14 +51,14 @@ describe('OnSessionStorageRepository', () => {
 
     describe('#storeList', () => {
         it('can store entity list, And can select them', () => {
-            var persons = [person, person2];
-            var stored = repository.storeList(persons);
+            let persons = [person, person2];
+            let stored = repository.storeList(persons);
             assert(stored === persons);
 
-            var resolved = repository.resolve(identity);
+            let resolved = repository.resolve(identity);
             assert(resolved.getIdentity().getValue() === person.getIdentity().getValue());
             assert(resolved.name === person.name);
-            var resolved2 = repository.resolve(identity2);
+            let resolved2 = repository.resolve(identity2);
             assert(resolved2.getIdentity().getValue() === person2.getIdentity().getValue());
             assert(resolved2.name === person2.name);
         });
@@ -68,13 +68,13 @@ describe('OnSessionStorageRepository', () => {
         it('returns Some<Entity> if the entity is stored', () => {
             repository.store(person);
 
-            var option = repository.resolveOption(identity);
+            let option = repository.resolveOption(identity);
             assert(option !== null);
             assert(option.getIdentity().getValue() === person.getIdentity().getValue());
         });
 
         it('returns None<Entity> if the entity is not stored', () => {
-            var option = repository.resolveOption(identity);
+            let option = repository.resolveOption(identity);
             assert(option === null);
         });
     });
@@ -84,7 +84,7 @@ describe('OnSessionStorageRepository', () => {
             repository.store(person);
 
             repository.deleteByEntity(person);
-            var resolved = repository.resolve(identity);
+            let resolved = repository.resolveOption(identity);
 
             assert(resolved === null);
         });
@@ -95,7 +95,7 @@ describe('OnSessionStorageRepository', () => {
             repository.store(person);
 
             repository.deleteByIdentity(identity);
-            var resolved = repository.resolve(identity);
+            let resolved = repository.resolveOption(identity);
 
             assert(resolved === null);
         });

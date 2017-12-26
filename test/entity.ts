@@ -1,6 +1,6 @@
-import "./index";
-import {Entity, NumberIdentity} from "../src/index";
 import * as assert from "assert";
+import {Entity, NumberIdentity} from "../src";
+import "./index";
 
 class Person extends Entity<NumberIdentity> {
     constructor(identity: NumberIdentity, public name: string) {
